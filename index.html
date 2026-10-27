@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blackbeard's Barbershop · South St. Louis County</title>
+<meta name="description" content="A one-chair pirate barbershop at 9947 Lin Ferry Dr, St. Louis, MO 63123. Classic cuts, fades, custom designs, and beard grooming. Call (314) 270-3308.">
+<link rel="icon" href="logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BarberShop",
+  "name": "Blackbeard's Barbershop",
+  "telephone": "+1-314-270-3308",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9947 Lin Ferry Dr",
+    "addressLocality": "St. Louis",
+    "addressRegion": "MO",
+    "postalCode": "63123",
+    "addressCountry": "US"
+  },
+  "sameAs": ["https://www.facebook.com/blackbeardthebarber/"],
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "316"}
+}
+</script>
+<style>
+  :root{
+    --ink:#141119;
+    --ink-2:#1c1723;
+    --parchment:#f2ecdd;
+    --parchment-dim:#cdc4ae;
+    --brass:#c9a24b;
+    --blood:#a63a2e;
+    --navy:#2e4a6b;
+    --sea:#33505e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:"Crimson Pro",Georgia,serif;
+    font-size:1.19rem;
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--brass);color:var(--ink)}
+
+  h1,h2,h3,.display{font-family:"Pirata One",Georgia,serif;font-weight:400;letter-spacing:.02em}
+  h2{font-size:clamp(2.1rem,4.6vw,3.1rem);color:var(--brass)}
+  .wrap{width:min(1080px,88vw);margin:0 auto}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;min-height:100svh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:6rem 1.2rem 5rem;isolation:isolate;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:-2;
+    background:url("storefront.jpg") center 38%/cover no-repeat;
+    filter:brightness(.42) saturate(.75);
+    transform:scale(1.08);
+    animation:heroDrift 26s ease-in-out infinite alternate;
+  }
+  @keyframes heroDrift{from{transform:scale(1.08) translateY(-1.2%)}to{transform:scale(1.08) translateY(1.2%)}}
+  .hero::after{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:
+      radial-gradient(ellipse 90% 62% at 50% 42%,transparent 0%,rgba(20,17,25,.34) 62%,rgba(20,17,25,.88) 100%),
+      linear-gradient(rgba(20,17,25,.42),rgba(20,17,25,.12) 30%,rgba(20,17,25,.9));
+  }
+  .fog{
+    position:absolute;left:-10%;bottom:-4%;width:120%;height:38%;z-index:-1;pointer-events:none;
+    background:radial-gradient(ellipse 46% 88% at 18% 100%,rgba(242,236,221,.075),transparent 70%),
+               radial-gradient(ellipse 52% 80% at 58% 100%,rgba(242,236,221,.06),transparent 70%),
+               radial-gradient(ellipse 44% 90% at 88% 100%,rgba(242,236,221,.075),transparent 70%);
+    animation:fogRoll 18s ease-in-out infinite alternate;
+  }
+  @keyframes fogRoll{from{transform:translateX(-3%) skewX(-2deg)}to{transform:translateX(3%) skewX(2deg)}}
+
+  .hero .mark{width:min(190px,34vw);filter:drop-shadow(0 10px 30px rgba(0,0,0,.55))}
+  .rise{opacity:0;transform:translateY(26px);animation:rise 1s cubic-bezier(.19,1,.22,1) forwards}
+  .rise.d1{animation-delay:.15s}.rise.d2{animation-delay:.4s}.rise.d3{animation-delay:.65s}.rise.d4{animation-delay:.9s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .hero .mark.rise{transform:translateY(-26px) scale(.92);animation-name:riseMark}
+  @keyframes riseMark{to{opacity:1;transform:none}}
+  .hero h1{
+    font-size:clamp(3rem,9vw,6rem);line-height:.95;margin:1.1rem 0 .4rem;
+    text-shadow:0 3px 0 rgba(0,0,0,.45),0 14px 40px rgba(0,0,0,.6);
+  }
+  .hero .sub{max-width:34em;margin:0 auto;color:var(--parchment-dim);font-size:clamp(1.05rem,2vw,1.3rem)}
+  .rating{
+    display:inline-flex;align-items:center;gap:.55em;margin:1.5rem 0 2rem;
+    padding:.42em 1.1em;border:1px solid rgba(201,162,75,.45);border-radius:999px;
+    background:rgba(20,17,25,.55);backdrop-filter:blur(4px);font-size:1.02rem;
+  }
+  .stars{color:var(--brass);letter-spacing:.14em;font-size:.94em}
+  .cta-row{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+  .btn{
+    font-family:"Pirata One",Georgia,serif;font-size:1.42rem;letter-spacing:.04em;
+    padding:.5em 1.5em .42em;border-radius:4px;text-decoration:none;display:inline-block;
+    transition:transform .25s cubic-bezier(.19,1,.22,1),box-shadow .25s;
+  }
+  .btn-call{background:var(--brass);color:var(--ink);box-shadow:0 6px 0 #8a6b28}
+  .btn-call:hover{transform:translateY(-3px);box-shadow:0 9px 0 #8a6b28}
+  .btn-call:active{transform:translateY(2px);box-shadow:0 3px 0 #8a6b28}
+  .btn-ghost{border:1px solid rgba(242,236,221,.5);color:var(--parchment)}
+  .btn-ghost:hover{border-color:var(--brass);color:var(--brass);transform:translateY(-3px)}
+  .scroll-hint{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);color:var(--parchment-dim);font-size:.95rem;opacity:.75}
+  .scroll-hint::after{content:"";display:block;width:1px;height:34px;margin:.5em auto 0;background:linear-gradient(var(--brass),transparent);animation:plumbLine 1.8s ease-in-out infinite}
+  @keyframes plumbLine{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+
+  /* ---------- barber pole divider ---------- */
+  .pole{height:16px;overflow:hidden;position:relative;box-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .pole::before{
+    content:"";position:absolute;inset:-40px;
+    background:repeating-linear-gradient(45deg,
+      var(--blood) 0 26px,#e9e2d0 26px 52px,var(--navy) 52px 78px,#e9e2d0 78px 104px);
+    animation:poleSpin 5.5s linear infinite;
+  }
+  @keyframes poleSpin{to{transform:translateX(104px)}}
+
+  /* ---------- sections ---------- */
+  section{padding:5.5rem 0}
+  .kicker{color:var(--parchment-dim);font-style:italic;margin-bottom:.4rem}
+  section p{color:var(--parchment-dim);max-width:36em}
+  section p strong{color:var(--parchment)}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3.2rem;align-items:center}
+  .about-grid figure{
+    position:relative;border-radius:3px;overflow:hidden;
+    box-shadow:0 24px 60px rgba(0,0,0,.55);
+    transform:rotate(-1.4deg);
+  }
+  .about-grid img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.19,1,.22,1)}
+  .about-grid figure:hover img{transform:scale(1.045)}
+  .about-grid figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:.55em 1em;
+    background:linear-gradient(transparent,rgba(20,17,25,.92));font-size:.92rem;color:var(--parchment-dim);
+  }
+  .about-copy h2{margin-bottom:.6rem}
+  .about-copy p{margin-bottom:1rem}
+  .about-copy p:last-of-type{margin-bottom:0}
+
+  /* services: manifest list */
+  .manifest{margin-top:1.8rem;max-width:44em}
+  .manifest li{
+    list-style:none;display:flex;align-items:baseline;gap:.9em;padding:.85em 0;
+    border-bottom:1px solid rgba(242,236,221,.14);font-size:1.14rem;
+  }
+  .manifest li:first-child{border-top:1px solid rgba(242,236,221,.14)}
+  .manifest .sigil{color:var(--brass);font-size:.9em;flex:none;transform:translateY(1px)}
+  .manifest strong{color:var(--parchment);font-weight:600;white-space:nowrap}
+  .manifest span{color:var(--parchment-dim)}
+  .tip{margin-top:1.2rem;color:var(--parchment-dim);font-style:italic}
+  .tip strong{color:var(--brass);font-style:normal}
+
+  /* reviews: crew log */
+  .crew-log{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.6rem}
+  .log-entry{
+    background:linear-gradient(160deg,#efe7d2,#e2d7ba);
+    color:var(--ink);padding:1.7rem 1.5rem 1.4rem;border-radius:3px;
+    box-shadow:0 18px 44px rgba(0,0,0,.5);
+    font-size:1.06rem;line-height:1.5;position:relative;
+    transition:transform .45s cubic-bezier(.19,1,.22,1),box-shadow .45s;
+  }
+  .log-entry:nth-child(1){transform:rotate(-1.6deg)}
+  .log-entry:nth-child(2){transform:rotate(1.1deg) translateY(10px)}
+  .log-entry:nth-child(3){transform:rotate(-.7deg)}
+  .log-entry:hover{transform:rotate(0) translateY(-4px);box-shadow:0 26px 56px rgba(0,0,0,.55);z-index:2}
+  .log-entry .stars{font-size:1rem;display:block;margin-bottom:.65rem}
+  .log-entry blockquote{font-style:italic}
+  .log-entry cite{display:block;margin-top:.9rem;font-style:normal;font-weight:600;font-size:.98rem}
+  .log-entry cite span{display:block;font-weight:400;color:#5c5546;font-size:.9rem}
+  .log-entry::before{
+    content:"☠";position:absolute;top:.55rem;right:.8rem;font-size:1.05rem;color:rgba(20,17,25,.28);
+  }
+  .log-source{margin-top:1.6rem;font-size:.98rem}
+  .log-source a{color:var(--brass)}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:start;margin-top:2rem}
+  .hours{border-collapse:collapse;font-size:1.1rem}
+  .hours td{padding:.42em 0 .42em 1.6em;color:var(--parchment-dim)}
+  .hours td:first-child{padding-left:0;color:var(--parchment);min-width:9ch}
+  .hours tr.closed td{color:#7d7462}
+  .hours tr.today td{color:var(--brass);font-weight:600}
+  .hours td .state{font-size:.85em;font-style:italic}
+  .visit-info address{font-style:normal;line-height:1.7;margin-bottom:1.2rem}
+  .visit-info a{color:var(--parchment);text-decoration-color:rgba(201,162,75,.6);text-underline-offset:3px}
+  .visit-info a:hover{color:var(--brass)}
+  .fb-card{
+    display:inline-flex;align-items:center;gap:.7em;margin-top:.4rem;padding:.6em 1.2em;
+    border:1px solid rgba(242,236,221,.35);border-radius:4px;text-decoration:none;
+    transition:border-color .25s,transform .25s;
+  }
+  .fb-card:hover{border-color:var(--brass);transform:translateY(-2px)}
+  .fb-card svg{width:20px;height:20px;fill:var(--parchment)}
+  .fb-card b{font-weight:600}
+  .fb-card span{color:var(--parchment-dim);font-size:.95rem}
+
+  /* footer */
+  footer{position:relative;margin-top:2rem;color:var(--parchment-dim);font-size:1rem}
+  .waves{display:block;width:100%;height:70px}
+  .waves path{fill:var(--sea)}
+  .waves path:nth-child(2){fill:var(--ink-2);opacity:.9}
+  .foot-inner{background:var(--ink-2);padding:2.2rem 0 2.6rem;text-align:center}
+  .foot-inner .mark{width:64px;opacity:.85;margin-bottom:.6rem}
+  .foot-inner p{margin:.2rem 0}
+  .foot-inner a{color:var(--brass);text-decoration:none}
+  .foot-inner a:hover{text-decoration:underline}
+
+  /* scroll reveals */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.19,1,.22,1),transform .9s cubic-bezier(.19,1,.22,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}
+
+  /* compass */
+  .compass{position:fixed;right:1.3rem;top:50%;width:52px;height:52px;opacity:.5;z-index:5;pointer-events:none;
+    transform:translateY(-50%)}
+  .compass svg{width:100%;height:100%;will-change:transform}
+  @media (max-width:860px){.compass{display:none}}
+
+  @media (max-width:860px){
+    .about-grid,.visit-grid{grid-template-columns:1fr}
+    .crew-log{grid-template-columns:1fr;max-width:34em;margin-inline:auto}
+    .log-entry:nth-child(2){transform:rotate(.8deg)}
+    section{padding:4rem 0}
+    .btn{font-size:1.25rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+    .rise,.reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<div class="compass" aria-hidden="true">
+  <svg viewBox="0 0 64 64"><g stroke="#c9a24b" fill="none" stroke-width="2">
+    <circle cx="32" cy="32" r="29"/><circle cx="32" cy="32" r="3" fill="#c9a24b" stroke="none"/>
+    <path d="M32 6 L36 32 L32 58 L28 32 Z" fill="#c9a24b" stroke="none"/>
+    <path d="M6 32 L32 28 L58 32 L32 36 Z" fill="#a63a2e" stroke="none" opacity=".85"/>
+  </g></svg>
+</div>
+
+<header class="hero">
+  <div class="fog" aria-hidden="true"></div>
+  <svg class="mark rise" viewBox="0 0 440 470" role="img" aria-label="Blackbeard's Barbershop logo: pirate skull in a tricorn hat">
+    <use href="logo.svg#logo"/>
+  </svg>
+  <h1 class="rise d1">Blackbeard&rsquo;s Barbershop</h1>
+  <p class="sub rise d2">A one-chair pirate shop in South St. Louis County, where the haircut gets an hour and the beard gets the warm towels.</p>
+  <div class="rating rise d3">
+    <span class="stars" aria-hidden="true">★★★★★</span>
+    <span><strong>4.9</strong> &middot; 316 Google reviews</span>
+  </div>
+  <div class="cta-row rise d4">
+    <a class="btn btn-call" href="tel:+13142703308">Call (314) 270-3308</a>
+    <a class="btn btn-ghost" href="https://www.facebook.com/blackbeardthebarber/" target="_blank" rel="noopener">See us on Facebook</a>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">board below</div>
+</header>
+
+<div class="pole" aria-hidden="true"></div>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <figure class="reveal">
+      <img src="interior.jpg" alt="Inside the shop: vintage barber chairs, a pirate flag, and a treasure map on pallet-wood walls" loading="lazy">
+      <figcaption>The shop: pallet-wood walls, a pirate flag, a treasure map, and chairs that have seen a thousand cuts.</figcaption>
+    </figure>
+    <div class="about-copy">
+      <p class="kicker reveal">the shop</p>
+      <h2 class="reveal d1">One chair. One barber. No cattle drive.</h2>
+      <p class="reveal d2">This is a real barbershop with a pirate&rsquo;s soul. Craig runs it solo, takes his time, and finishes every fade and custom design like it&rsquo;s going on a poster. Nobody gets herded through here like cattle &mdash; plan to spend an hour and leave looking like you should.</p>
+      <p class="reveal d2">Beards get the full treatment too: oils, warm towels, and a steady hand. It&rsquo;s the kind of place people drive across town for and then tell their friends about.</p>
+    </div>
+  </div>
+</section>
+
+<div class="pole" aria-hidden="true"></div>
+
+<section id="services">
+  <div class="wrap">
+    <p class="kicker reveal">the manifest</p>
+    <h2 class="reveal d1">What&rsquo;s on the ledger</h2>
+    <ul class="manifest">
+      <li class="reveal"><span class="sigil" aria-hidden="true">⚔</span><strong>Classic cuts</strong><span>&nbsp;&mdash; the standards, done properly, scissor and clipper work included</span></li>
+      <li class="reveal"><span class="sigil" aria-hidden="true">⚔</span><strong>Fades &amp; custom designs</strong><span>&nbsp;&mdash; freehand work with real attention to detail, down to the etched lines</span></li>
+      <li class="reveal"><span class="sigil" aria-hidden="true">⚔</span><strong>Beard grooming</strong><span>&nbsp;&mdash; shaping, oils, and warm towels, the slow way</span></li>
+      <li class="reveal"><span class="sigil" aria-hidden="true">⚔</span><strong>Kids&rsquo; cuts</strong><span>&nbsp;&mdash; patient with first-timers and wiggly first mates alike</span></li>
+    </ul>
+    <p class="tip reveal">A note from the crew: cards are taken, but <strong>cash is preferred</strong>. Come early &mdash; the chair fills up fast.</p>
+  </div>
+</section>
+
+<div class="pole" aria-hidden="true"></div>
+
+<section id="reviews">
+  <div class="wrap">
+    <p class="kicker reveal">the crew log</p>
+    <h2 class="reveal d1">Word from the crew</h2>
+    <div class="crew-log">
+      <article class="log-entry reveal">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <blockquote>&ldquo;I&rsquo;ve watched him work on my son&rsquo;s fade and custom design, and it&rsquo;s honestly a work of art. In my opinion, he&rsquo;s the best barber in St. Louis, hands down.&rdquo;</blockquote>
+        <cite>Jessica Hennessy<span>Google review</span></cite>
+      </article>
+      <article class="log-entry reveal d1">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <blockquote>&ldquo;This is a legit barbershop. You won&rsquo;t be herded through here like cattle, as tends to happen at other barbershops. Plan to spend an hour here.&rdquo;</blockquote>
+        <cite>Ray Bauer<span>Google review</span></cite>
+      </article>
+      <article class="log-entry reveal d2">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <blockquote>&ldquo;Be ready to show off to everyone and maybe go get a suit after this guy is done with you. Very fine job, very cool little shop.&rdquo;</blockquote>
+        <cite>Drake Willard<span>Google review</span></cite>
+      </article>
+    </div>
+    <p class="log-source reveal">Rated <strong>4.9 out of 5</strong> across 316 Google reviews. <a href="https://www.google.com/maps?cid=2842177445580215448" target="_blank" rel="noopener">Read them all on Google&nbsp;&rarr;</a></p>
+  </div>
+</section>
+
+<div class="pole" aria-hidden="true"></div>
+
+<section id="visit">
+  <div class="wrap">
+    <p class="kicker reveal">chart a course</p>
+    <h2 class="reveal d1">Drop anchor</h2>
+    <div class="visit-grid">
+      <table class="hours reveal" id="hours" data-tz="America/Chicago">
+        <tbody>
+          <tr data-day="1" class="closed"><td>Monday</td><td>Closed &mdash; the crew rests</td></tr>
+          <tr data-day="2"><td>Tuesday</td><td>9:00 AM &ndash; 3:00 PM</td></tr>
+          <tr data-day="3"><td>Wednesday</td><td>9:00 AM &ndash; 3:00 PM</td></tr>
+          <tr data-day="4"><td>Thursday</td><td>9:00 AM &ndash; 3:00 PM</td></tr>
+          <tr data-day="5"><td>Friday</td><td>9:00 AM &ndash; 3:00 PM</td></tr>
+          <tr data-day="6"><td>Saturday</td><td>9:00 AM &ndash; 1:00 PM</td></tr>
+          <tr data-day="0" class="closed"><td>Sunday</td><td>Closed</td></tr>
+        </tbody>
+      </table>
+      <div class="visit-info reveal d1">
+        <address>
+          9947 Lin Ferry Dr<br>
+          St. Louis, MO 63123<br>
+          <a href="tel:+13142703308">(314) 270-3308</a>
+        </address>
+        <p><a href="https://maps.google.com/?cid=2842177445580215448" target="_blank" rel="noopener">Get directions &rarr;</a></p>
+        <a class="fb-card" href="https://www.facebook.com/blackbeardthebarber/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.6V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.3H7.6V13h2.7v8h3.2z"/></svg>
+          <span><b>Blackbeard&rsquo;s Barbershop</b> on Facebook &mdash; cuts, designs, and shop news</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <svg class="waves" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,38 C150,68 300,8 450,32 C600,56 750,4 900,30 C1050,56 1150,26 1200,38 L1200,70 L0,70 Z" opacity=".55"/>
+    <path d="M0,50 C180,20 320,62 480,44 C640,26 780,64 940,46 C1060,32 1140,54 1200,50 L1200,70 L0,70 Z"/>
+  </svg>
+  <div class="foot-inner">
+    <svg class="mark" viewBox="0 0 440 470" aria-hidden="true"><use href="logo.svg#logo"/></svg>
+    <p><strong style="font-family:'Pirata One';font-size:1.3rem;letter-spacing:.03em">Blackbeard&rsquo;s Barbershop</strong></p>
+    <p>9947 Lin Ferry Dr, St. Louis, MO 63123 &middot; <a href="tel:+13142703308">(314) 270-3308</a></p>
+    <p><a href="https://www.facebook.com/blackbeardthebarber/" target="_blank" rel="noopener">Facebook</a> &middot; <a href="https://www.google.com/maps?cid=2842177445580215448" target="_blank" rel="noopener">Google Maps</a></p>
+  </div>
+</footer>
+
+<script>
+  // scroll reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15, rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // compass turns with scroll
+  const compass = document.querySelector('.compass svg');
+  if (compass && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      compass.style.transform = `rotate(${(scrollY / Math.max(max,1)) * 360}deg)`;
+    }, {passive:true});
+  }
+
+  // highlight today's hours and open state (shop runs on St. Louis time)
+  (function () {
+    const now = new Date(new Date().toLocaleString('en-US', {timeZone:'America/Chicago'}));
+    const day = now.getDay(), hr = now.getHours() + now.getMinutes()/60;
+    const rows = document.querySelectorAll('#hours tr');
+    let open = false;
+    rows.forEach(r => {
+      const d = +r.dataset.day;
+      if (d === day) {
+        r.classList.add('today');
+        const closed = r.classList.contains('closed');
+        if (!closed) {
+          const [o,c] = d === 6 ? [9,13] : [9,15];
+          if (hr >= o && hr < c) { open = true; r.lastElementChild.innerHTML += ' <span class="state">&middot; open now</span>'; }
+          else if (hr < o) { r.lastElementChild.innerHTML += ' <span class="state">&middot; opens at ' + o + ':00</span>'; }
+          else { r.lastElementChild.innerHTML += ' <span class="state">&middot; closed for today</span>'; }
+        }
+      }
+    });
+    if (open) {
+      const tag = document.querySelector('.rating span:last-child');
+      tag.innerHTML += ' <span class="state" style="color:#7fae87">&middot; open right now</span>';
+    }
+  })();
+</script>
+</body>
+</html>
